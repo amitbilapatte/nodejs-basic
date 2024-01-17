@@ -1,3 +1,5 @@
 exports.getPosts = (req, res) => {
-  res.send("|| JAI SHREE RAM ||");
+  res.json({
+    posts: [{ title: "JAI" }, { title: "SHREE" }, { title: "RAM" }],
+  });
 };
