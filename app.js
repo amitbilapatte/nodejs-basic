@@ -1,11 +1,18 @@
 const express = require("express");
-const { getPosts } = require("./routes/post");
-const postRoutes = require("./routes/post");
-
 const app = express();
+const morgan = require("morgan");
+app.use(morgan("dev"));
+const { getPosts } = require("./routes/post");
+
+const myMiddleware = (req, res, next) => {
+  console.log("middleware Applied");
+  next();
+};
+
+app.use(morgan("dev"));
+app.use(myMiddleware);
 
 app.get("/", getPosts);
-// app.get("/", postRoutes.getPosts);
 
 const port = 8080;
 
