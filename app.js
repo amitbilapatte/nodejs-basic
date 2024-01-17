@@ -1,11 +1,14 @@
-const fs = require("fs");
-const fileName = "target.txt";
+const express = require("express");
+const { getPosts } = require("./routes/post");
+const postRoutes = require("./routes/post");
 
-const errHanlder = (err) => console.log(err);
+const app = express();
 
-const dataHanlder = (data) => console.log(data.toString());
-fs.readFile(fileName, (err, data) => {
-  if (err) errHanlder(err);
-  dataHanlder(data);
+app.get("/", getPosts);
+// app.get("/", postRoutes.getPosts);
+
+const port = 8080;
+
+app.listen(port, () => {
+  console.log(`"A node JS API on port: " ${port}`);
 });
-console.log("node js async programming");
