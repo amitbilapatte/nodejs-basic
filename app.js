@@ -1,16 +1,8 @@
-// console.log("Process", process);
-// const helpers = require("./helpers");
-const { sum } = require("./helpers"); //object destructuring
+const express = require("express");
+const app = express();
 
-const http = require("http");
-
-const server = http.createServer((req, res) => {
-  res.end("Hello World from nodeJS Updates");
+app.get("/", (req, res) => {
+  res.send("JAI SHREE RAM");
 });
 
-server.listen(3000);
-
-// const total = sum(10, 200);
-
-const total = sum(10, 200);
-console.log("Total: " + total);
+app.listen(3000);
