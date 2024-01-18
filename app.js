@@ -7,22 +7,29 @@ const dotenv = require("dotenv");
 const expressValidator = require("express-validator");
 dotenv.config();
 
-//db connection
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }).then(() => console.log("DB Connected !!"));
+// Connect to MongoDB
+mongoose
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true })
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("MongoDB connection error:", err.message));
 
-mongoose.connection.on("error", (err) => {
-  console.log(`DB connection error: ${err.message}`);
+// Set up middleware
+app.use(morgan("dev")); // HTTP request logger middleware
+app.use(bodyParser.json()); // Parse JSON request bodies
+app.use(expressValidator()); // Request validation middleware
+
+// Import and use routes
+const postRoutes = require("./routes/post");
+app.use("/", postRoutes); // Mount post routes at the root path
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Internal Server Error");
 });
 
-//bring in routes
-const postRoutes = require("./routes/post");
-
-app.use(morgan("dev"));
-app.use(bodyParser.json());
-app.use(expressValidator());
-app.use("/", postRoutes);
-
+// Start the server
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
-  console.log(`"A node JS API on port: " ${port}`);
+  console.log(`Server running on port ${port}`);
 });
