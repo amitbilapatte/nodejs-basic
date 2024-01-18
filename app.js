@@ -1,21 +1,24 @@
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
 const morgan = require("morgan");
-app.use(morgan("dev"));
+const dotenv = require("dotenv");
+dotenv.config();
+
+//db connection
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }).then(() => console.log("DB Connected !!"));
+
+mongoose.connection.on("error", (err) => {
+  console.log(`DB connection error: ${err.message}`);
+});
+
+//bring in routes
 const postRoutes = require("./routes/post");
 
-const myMiddleware = (req, res, next) => {
-  console.log("middleware Applied");
-  next();
-};
-
 app.use(morgan("dev"));
-app.use(myMiddleware);
-
 app.use("/", postRoutes);
 
-const port = 8080;
-
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`"A node JS API on port: " ${port}`);
 });
