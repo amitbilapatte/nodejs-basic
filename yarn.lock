@@ -183,8 +183,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "basic@workspace:."
   dependencies:
+    body-parser: "npm:^1.20.2"
     dotenv: "npm:^16.3.1"
     express: "npm:^4.18.2"
+    express-validator: "npm:^5.3.1"
     mongoose: "npm:^8.1.0"
     morgan: "npm:^1.10.0"
     nodemon: "npm:^3.0.3"
@@ -215,6 +217,26 @@ __metadata:
     type-is: "npm:~1.6.18"
     unpipe: "npm:1.0.0"
   checksum: 33f202c9d5e21f9364ecbcc6704b637104e3a802c81e3cc0b05af94681ce3984e2792bb8d05fe5e3471ac0179c13c8d9da80034178a513ebf4b4ab0d56823617
+  languageName: node
+  linkType: hard
+
+"body-parser@npm:^1.20.2":
+  version: 1.20.2
+  resolution: "body-parser@npm:1.20.2"
+  dependencies:
+    bytes: "npm:3.1.2"
+    content-type: "npm:~1.0.5"
+    debug: "npm:2.6.9"
+    depd: "npm:2.0.0"
+    destroy: "npm:1.2.0"
+    http-errors: "npm:2.0.0"
+    iconv-lite: "npm:0.4.24"
+    on-finished: "npm:2.4.1"
+    qs: "npm:6.11.0"
+    raw-body: "npm:2.5.2"
+    type-is: "npm:~1.6.18"
+    unpipe: "npm:1.0.0"
+  checksum: 1584963c6e285f19b63890b10570f2e317daf8971cc8e7a603014ee14b62d29d2a1dcd3d1b896fc4f1b5b7f946bec35d7e948ba39c5cf4b4cb24fe1ffafbbf88
   languageName: node
   linkType: hard
 
@@ -356,7 +378,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"content-type@npm:~1.0.4":
+"content-type@npm:~1.0.4, content-type@npm:~1.0.5":
   version: 1.0.5
   resolution: "content-type@npm:1.0.5"
   checksum: aa41501a6a2040fd19cdb39ac7e077f414c269cbfa0a274dd6b2ce1ef10c8211ea11b9bf3c034ba6872fde5f16d0b234062df62ab5a773b978cce40b60e01747
@@ -517,6 +539,16 @@ __metadata:
   version: 3.1.1
   resolution: "exponential-backoff@npm:3.1.1"
   checksum: b3010284e8d2161f7a2589b92d41299d5bdffa6c79bac7bbfeee239a67627ae8b878e40c408a4419b19afcf9514442c79929cf3bd5f49f7f19ebd54fd2aa306f
+  languageName: node
+  linkType: hard
+
+"express-validator@npm:^5.3.1":
+  version: 5.3.1
+  resolution: "express-validator@npm:5.3.1"
+  dependencies:
+    lodash: "npm:^4.17.10"
+    validator: "npm:^10.4.0"
+  checksum: 959f090b0647514dba818fa54f0b0c0d0504f611bc581cfff18346cde41d0152305a649aecc71477dcace945c482a7fc97a48d6c31a09bcaef5ce05830fbce12
   languageName: node
   linkType: hard
 
@@ -919,6 +951,13 @@ __metadata:
   version: 2.5.1
   resolution: "kareem@npm:2.5.1"
   checksum: 4973761dc49f78a94d9e2851dfb8891d1e464d3555d6a940279007d8c16e340df9cfa748864b579c1b7a4dba639d69d8b8b7472e86e20d49a338e87d1a3b9897
+  languageName: node
+  linkType: hard
+
+"lodash@npm:^4.17.10":
+  version: 4.17.21
+  resolution: "lodash@npm:4.17.21"
+  checksum: 3ac18e92108d68f88429fcddee609e42cf2b653583d9bac22308815a4cd6b185b89a0ad0d9b0c670c371d9d6b61571a98fee6b36e1db14e52766ca253ed9cba0
   languageName: node
   linkType: hard
 
@@ -1454,6 +1493,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"raw-body@npm:2.5.2":
+  version: 2.5.2
+  resolution: "raw-body@npm:2.5.2"
+  dependencies:
+    bytes: "npm:3.1.2"
+    http-errors: "npm:2.0.0"
+    iconv-lite: "npm:0.4.24"
+    unpipe: "npm:1.0.0"
+  checksum: 409733b2b8e85008488eaec74dc09d7ae676a38cc543d3129c2696970056f733aa4819875dfc415d8f3e5e98e792c7378c9b10c2340ecc6405b74916cf33f63d
+  languageName: node
+  linkType: hard
+
 "readdirp@npm:~3.6.0":
   version: 3.6.0
   resolution: "readdirp@npm:3.6.0"
@@ -1803,6 +1854,13 @@ __metadata:
   version: 1.0.1
   resolution: "utils-merge@npm:1.0.1"
   checksum: b72b8d7a0f7d63a9b1ced39a44b292994111c93cf9c4da8a561e4fe0d0232af7217a53d5aae3a950fb7ab6f423baf3e0d2d7c7c33dd6c4ec78d0a3c720ee6adb
+  languageName: node
+  linkType: hard
+
+"validator@npm:^10.4.0":
+  version: 10.11.0
+  resolution: "validator@npm:10.11.0"
+  checksum: b24c61c0c2490e3f04b248e9b2b3fa5af7a4aafbd44175b0d4257df657f2feb57b9251eb03c73564bcb35be0386518b1e18646724c85ba8c88618e7db024cdc0
   languageName: node
   linkType: hard
 
