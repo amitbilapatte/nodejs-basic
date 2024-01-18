@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
+const expressValidator = require("express-validator");
 dotenv.config();
 
 //db connection
@@ -18,6 +19,7 @@ const postRoutes = require("./routes/post");
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
+app.use(expressValidator());
 app.use("/", postRoutes);
 
 const port = process.env.PORT || 8080;
