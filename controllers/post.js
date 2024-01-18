@@ -8,6 +8,20 @@ exports.getPosts = (req, res) => {
     })
     .catch((err) => console.log(err));
 };
+exports.getPosts = async (req, res) => {
+  try {
+    console.log(req.params.id);
+    const postId = req.params.id; // Assuming the post ID is passed as a route parameter
+    const post = await Post.findById(postId).select("_id title body");
+    if (!post) {
+      return res.status(404).json({ error: "Post not found" });
+    }
+    res.json({ post });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
 
 exports.createPost = (req, res) => {
   const post = new Post(req.body);
